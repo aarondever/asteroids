@@ -1,3 +1,5 @@
+from typing import Self
+
 import pygame
 
 
@@ -21,3 +23,6 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt: float) -> None:
         # sub-classes must override
         pass
+
+    def is_collison(self, circle: Self) -> bool:
+        return self.position.distance_to(circle.position) < self.radius + circle.radius
